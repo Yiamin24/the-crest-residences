@@ -297,7 +297,7 @@ export default function HomePage() {
                 </AnimatedElement>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-primary/20 border border-primary/20">
                 {projectHighlights.length > 0 && projectHighlights[0] && (
                     <>
                         {[
@@ -310,39 +310,21 @@ export default function HomePage() {
                             { label: 'Density', value: projectHighlights[0].densityType, icon: 'density', img: projectHighlights[0].densityTypeImage },
                             { label: 'Approvals', value: 'RERA & BBMP', icon: 'check', img: null }
                         ].map((item, idx) => (
-                            <AnimatedElement key={idx} delay={idx * 100} className="group relative overflow-hidden rounded-2xl bg-background shadow-lg hover:shadow-2xl transition-all duration-500 h-full min-h-[400px] flex flex-col">
-                                {/* Image Section */}
-                                {item.img ? (
-                                    <div className="relative h-48 overflow-hidden bg-secondary/10">
-                                        <Image 
-                                            src={item.img} 
-                                            alt={item.label} 
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 group-hover:to-black/40 transition-all duration-500" />
+                            <AnimatedElement key={idx} delay={idx * 100} className="bg-background p-8 lg:p-12 group hover:bg-white transition-colors duration-500 relative overflow-hidden h-full min-h-[300px] flex flex-col justify-between">
+                                <div className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-700">
+                                    {item.img && <Image src={item.img} alt={item.label} className="w-full h-full object-cover grayscale" />}
+                                </div>
+                                <div className="relative z-10">
+                                    <div className="text-primary mb-6 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 origin-left">
+                                        {getIconForHighlight(item.icon)}
                                     </div>
-                                ) : (
-                                    <div className="h-48 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                                        <div className="text-primary/30">
-                                            {getIconForHighlight(item.icon)}
-                                        </div>
-                                    </div>
-                                )}
-                                
-                                {/* Content Section */}
-                                <div className="flex-1 p-6 lg:p-8 flex flex-col justify-between">
-                                    <div>
-                                        <div className="text-primary mb-4 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 origin-left">
-                                            {getIconForHighlight(item.icon)}
-                                        </div>
-                                        <h3 className="text-xs uppercase tracking-widest text-foreground/50 mb-3">{item.label}</h3>
-                                        <p className="text-xl lg:text-2xl font-heading font-bold text-foreground group-hover:text-primary transition-colors">
-                                            {item.value}
-                                        </p>
-                                    </div>
-                                    <div className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center mt-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                                        <ArrowRight className="w-4 h-4 text-primary" />
-                                    </div>
+                                    <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-2">{item.label}</h3>
+                                    <p className="text-2xl lg:text-3xl font-heading font-bold text-foreground group-hover:text-primary transition-colors">
+                                        {item.value}
+                                    </p>
+                                </div>
+                                <div className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center mt-8 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                                    <ArrowRight className="w-4 h-4 text-primary" />
                                 </div>
                             </AnimatedElement>
                         ))}
