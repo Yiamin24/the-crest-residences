@@ -262,7 +262,6 @@ export default function HomePage() {
             </AnimatedElement>
             <AnimatedElement delay={200}>
                 <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-[9rem] font-heading font-bold text-white leading-[0.9] mb-6 sm:mb-8 mix-blend-overlay">
-                    <br/>
                     <span className="text-primary-foreground opacity-90">THE CREST</span>
                 </h1>
             </AnimatedElement>
