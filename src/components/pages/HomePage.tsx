@@ -202,13 +202,13 @@ export default function HomePage() {
       />
 
       {/* Merged Navigation & Hero Section */}
-      <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center bg-black">
+      <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
         {/* Background */}
-        <div className="absolute inset-0 z-0 flex items-center justify-center">
+        <div className="absolute inset-0 z-0">
             <Image
                 src="https://static.wixstatic.com/media/cef78c_bf612627d1364d9ead275224f0e62bdf~mv2.png"
                 alt="The Crest - Luxury Building with Pool"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent" />
         </div>
