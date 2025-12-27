@@ -203,15 +203,17 @@ export default function HomePage() {
 
       {/* Merged Navigation & Hero Section */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-        {/* Background */}
-        <div className="absolute inset-0 z-0">
-            <ParallaxSection offset={100} className="h-[120%] w-full -mt-[10%]">
-                <Image
-                    src="https://static.wixstatic.com/media/cef78c_d62e91d80f5a42f0a45a59a63a8d4c89~mv2.png?originWidth=1600&originHeight=896"
-                    alt="The Crest - Cinematic Twilight View"
-                    className="w-full h-full object-cover"
-                />
-            </ParallaxSection>
+        {/* Background - Video */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+            <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+            >
+                <source src="https://video.wixstatic.com/video/cef78c_22c691bbe351422d81d353d992c57f5e/360p/mp4/file.mp4" type="video/mp4" />
+            </video>
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-background/90" />
             <div className="absolute inset-0 bg-black/20" />
         </div>
