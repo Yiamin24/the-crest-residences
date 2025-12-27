@@ -257,28 +257,26 @@ export default function HomePage() {
         </motion.nav>
 
         {/* Hero Content */}
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-24 sm:pt-32 md:pt-40 lg:pt-48 text-center md:text-left">
+        <div className="relative z-10 w-full h-full flex flex-col justify-center items-start px-4 sm:px-6 container mx-auto text-center md:text-left">
             <AnimatedElement>
-                <h2 className="text-white/80 text-xs sm:text-sm md:text-lg tracking-[0.3em] uppercase mb-4 font-light">Premium Living by SLV Estates</h2>
+                <h2 className="text-white/80 text-xs sm:text-sm md:text-lg tracking-[0.3em] uppercase mb-2 sm:mb-4 font-light">Premium Living by SLV Estates</h2>
             </AnimatedElement>
             <AnimatedElement delay={200}>
-                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-[9rem] font-heading font-bold text-white leading-[0.9] mb-6 sm:mb-8 mix-blend-overlay">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-bold text-white leading-[0.9] mb-4 sm:mb-6 mix-blend-overlay">
                     <span className="text-primary-foreground opacity-90">THE CREST</span>
                 </h1>
             </AnimatedElement>
             <AnimatedElement delay={400}>
-                <div className="flex flex-col md:flex-row gap-4 sm:gap-6 items-center md:items-start max-w-2xl">
-                    <p className="text-white/90 text-base sm:text-lg md:text-xl font-light leading-relaxed backdrop-blur-sm p-3 sm:p-4 rounded-lg bg-white/5 border border-white/10">
+                <div className="flex flex-col md:flex-row gap-3 sm:gap-4 items-start max-w-2xl mb-4 sm:mb-6">
+                    <p className="text-white/90 text-sm sm:text-base md:text-lg font-light leading-relaxed backdrop-blur-sm p-2 sm:p-3 md:p-4 rounded-lg bg-white/5 border border-white/10">
                         Rise Above the Ordinary: A 13-Story Masterpiece on 5 Acres of Serenity
                     </p>
                 </div>
             </AnimatedElement>
             <AnimatedElement delay={600}>
-                <div className="mt-6 sm:mt-8 md:mt-10">
-                    <Button onClick={scrollToContact} size="lg" className="bg-primary text-white hover:bg-primary/90 text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 rounded-full shadow-2xl shadow-primary/30 transition-transform hover:scale-105">
-                        Begin Your Journey
-                    </Button>
-                </div>
+                <Button onClick={scrollToContact} size="lg" className="bg-primary text-white hover:bg-primary/90 text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-5 rounded-full shadow-2xl shadow-primary/30 transition-transform hover:scale-105">
+                    Begin Your Journey
+                </Button>
             </AnimatedElement>
         </div>
       </section>
