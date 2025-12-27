@@ -232,7 +232,7 @@ export default function HomePage() {
                 headerBgOpacity > 0.5 ? 'text-primary' : 'text-white'
               }`}>THE CREST</span>
               <span className={`text-[10px] uppercase tracking-widest transition-colors duration-300 ${
-                headerBgOpacity > 0.5 ? 'opacity-60' : 'opacity-40'
+                isInHeroSection ? 'text-white opacity-80' : (headerBgOpacity > 0.5 ? 'text-foreground opacity-60' : 'text-white opacity-40')
               }`}>By SLV Estates</span>
             </div>
             <div className="hidden md:flex items-center gap-6">
