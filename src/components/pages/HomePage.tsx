@@ -256,27 +256,27 @@ export default function HomePage() {
         </motion.nav>
 
         {/* Hero Content */}
-        <div className="relative z-10 container mx-auto px-6 text-center md:text-left">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-24 sm:pt-32 md:pt-40 lg:pt-48 text-center md:text-left">
             <AnimatedElement>
-                <h2 className="text-white/80 text-sm md:text-lg tracking-[0.3em] uppercase mb-4 font-light">Premium Living by SLV Estates</h2>
+                <h2 className="text-white/80 text-xs sm:text-sm md:text-lg tracking-[0.3em] uppercase mb-4 font-light">Premium Living by SLV Estates</h2>
             </AnimatedElement>
             <AnimatedElement delay={200}>
-                <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-heading font-bold text-white leading-[0.9] mb-8 mix-blend-overlay">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-[9rem] font-heading font-bold text-white leading-[0.9] mb-6 sm:mb-8 mix-blend-overlay">
                     CODE NAME:<br/>
                     <span className="text-primary-foreground opacity-90">THE CREST</span>
                 </h1>
             </AnimatedElement>
             <AnimatedElement delay={400}>
-                <div className="flex flex-col md:flex-row gap-6 items-center md:items-start max-w-2xl">
-                    <p className="text-white/90 text-lg md:text-xl font-light leading-relaxed backdrop-blur-sm p-4 rounded-lg bg-white/5 border border-white/10">
+                <div className="flex flex-col md:flex-row gap-4 sm:gap-6 items-center md:items-start max-w-2xl">
+                    <p className="text-white/90 text-base sm:text-lg md:text-xl font-light leading-relaxed backdrop-blur-sm p-3 sm:p-4 rounded-lg bg-white/5 border border-white/10">
                         Experience cinematic living in a 13-story architectural masterpiece, 
                         where luxury meets nature across 5 acres of pristine landscape.
                     </p>
                 </div>
             </AnimatedElement>
             <AnimatedElement delay={600}>
-                <div className="mt-10">
-                    <Button onClick={scrollToContact} size="lg" className="bg-primary text-white hover:bg-primary/90 text-lg px-10 py-6 rounded-full shadow-2xl shadow-primary/30 transition-transform hover:scale-105">
+                <div className="mt-6 sm:mt-8 md:mt-10">
+                    <Button onClick={scrollToContact} size="lg" className="bg-primary text-white hover:bg-primary/90 text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 rounded-full shadow-2xl shadow-primary/30 transition-transform hover:scale-105">
                         Begin Your Journey
                     </Button>
                 </div>
