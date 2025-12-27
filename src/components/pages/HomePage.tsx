@@ -93,6 +93,7 @@ export default function HomePage() {
   const [locationHighlights, setLocationHighlights] = useState<LocationHighlights[]>([]);
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
   const [activeOutdoorCategory, setActiveOutdoorCategory] = useState<string>('Active Life');
+  const [headerBgOpacity, setHeaderBgOpacity] = useState(0);
 
   // --- Scroll Hooks ---
   const { scrollYProgress } = useScroll();
@@ -101,6 +102,19 @@ export default function HomePage() {
     damping: 30,
     restDelta: 0.001
   });
+
+  // --- Header Scroll Effect ---
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      const heroHeight = window.innerHeight;
+      const opacity = Math.min(scrolled / (heroHeight * 0.3), 1);
+      setHeaderBgOpacity(opacity);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // --- Data Fetching (Preserved) ---
   useEffect(() => {
@@ -187,27 +201,9 @@ export default function HomePage() {
         style={{ scaleX }}
       />
 
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-primary/10 transition-all duration-300">
-        <div className="max-w-[120rem] mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex flex-col">
-            <span className="font-heading font-bold text-2xl tracking-tight text-primary">THE CREST</span>
-            <span className="text-[10px] uppercase tracking-widest opacity-60">By SLV Estates</span>
-          </div>
-          <div className="hidden md:flex items-center gap-6">
-             <div className="flex gap-4 text-xs font-medium tracking-wide opacity-80">
-                <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-primary"/> BBMP Approved</span>
-                <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3 text-primary"/> RERA Registered</span>
-             </div>
-             <Button onClick={scrollToContact} className="bg-primary hover:bg-primary/90 text-white rounded-full px-8">
-                Enquire Now
-             </Button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
+      {/* Merged Navigation & Hero Section */}
       <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        {/* Background */}
         <div className="absolute inset-0 z-0">
             <ParallaxSection offset={100} className="h-[120%] w-full -mt-[10%]">
                 <Image
@@ -220,6 +216,46 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-black/20" />
         </div>
 
+        {/* Fixed Header - Overlaid on Hero */}
+        <motion.nav 
+          className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+          style={{
+            backgroundColor: `rgba(251, 237, 214, ${headerBgOpacity})`,
+            backdropFilter: headerBgOpacity > 0.1 ? 'blur(12px)' : 'none',
+            borderBottom: headerBgOpacity > 0.1 ? '1px solid rgba(191, 126, 70, 0.1)' : 'none'
+          }}
+        >
+          <div className="max-w-[120rem] mx-auto px-6 py-4 flex justify-between items-center">
+            <div className="flex flex-col">
+              <span className={`font-heading font-bold text-2xl tracking-tight transition-colors duration-300 ${
+                headerBgOpacity > 0.5 ? 'text-primary' : 'text-white'
+              }`}>THE CREST</span>
+              <span className={`text-[10px] uppercase tracking-widest transition-colors duration-300 ${
+                headerBgOpacity > 0.5 ? 'opacity-60' : 'opacity-40'
+              }`}>By SLV Estates</span>
+            </div>
+            <div className="hidden md:flex items-center gap-6">
+               <div className={`flex gap-4 text-xs font-medium tracking-wide transition-colors duration-300 ${
+                 headerBgOpacity > 0.5 ? 'opacity-80' : 'opacity-60'
+               }`}>
+                  <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3"/> BBMP Approved</span>
+                  <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3"/> RERA Registered</span>
+               </div>
+               <Button 
+                 onClick={scrollToContact} 
+                 className={`rounded-full px-8 transition-all duration-300 ${
+                   headerBgOpacity > 0.5 
+                     ? 'bg-primary hover:bg-primary/90 text-white' 
+                     : 'bg-white/20 hover:bg-white/30 text-white border border-white/30'
+                 }`}
+               >
+                  Enquire Now
+               </Button>
+            </div>
+          </div>
+        </motion.nav>
+
+        {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-6 text-center md:text-left">
             <AnimatedElement>
                 <h2 className="text-white/80 text-sm md:text-lg tracking-[0.3em] uppercase mb-4 font-light">Premium Living by SLV Estates</h2>
