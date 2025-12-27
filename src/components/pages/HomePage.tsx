@@ -211,7 +211,7 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0">
             <ParallaxSection offset={100} className="h-[120%] w-full -mt-[10%]">
                 <Image
-                    src="https://static.wixstatic.com/media/12d367_71ebdd7141d041e4be3d91d80d4578dd~mv2.png?id=hero-tower-twilight"
+                    src="https://static.wixstatic.com/media/cef78c_d62e91d80f5a42f0a45a59a63a8d4c89~mv2.png?originWidth=1600&originHeight=896"
                     alt="The Crest - Cinematic Twilight View"
                     className="w-full h-full object-cover"
                 />
@@ -327,7 +327,7 @@ export default function HomePage() {
                     <AnimatedElement delay={200}>
                         <div className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl">
                             <Image 
-                                src="https://static.wixstatic.com/media/12d367_71ebdd7141d041e4be3d91d80d4578dd~mv2.png?id=clubhouse-main-lobby" 
+                                src="https://static.wixstatic.com/media/cef78c_2958cf93704e4b678fcf12056fcbfd52~mv2.png?originWidth=1600&originHeight=896" 
                                 alt="Clubhouse Grand Lobby" 
                                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
                             />
@@ -522,7 +522,7 @@ export default function HomePage() {
             <div className="lg:w-1/2 relative min-h-[50vh] lg:min-h-screen">
                 <div className="sticky top-0 h-screen w-full">
                     <Image 
-                        src="https://static.wixstatic.com/media/12d367_71ebdd7141d041e4be3d91d80d4578dd~mv2.png?id=location-map-stylized" 
+                        src="https://static.wixstatic.com/media/cef78c_f8bb81edc65349eb8d150c0048074407~mv2.png?originWidth=1600&originHeight=896" 
                         alt="Location Map" 
                         className="w-full h-full object-cover"
                     />
