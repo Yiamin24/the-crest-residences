@@ -269,8 +269,7 @@ export default function HomePage() {
             <AnimatedElement delay={400}>
                 <div className="flex flex-col md:flex-row gap-4 sm:gap-6 items-center md:items-start max-w-2xl">
                     <p className="text-white/90 text-base sm:text-lg md:text-xl font-light leading-relaxed backdrop-blur-sm p-3 sm:p-4 rounded-lg bg-white/5 border border-white/10">
-                        Experience cinematic living in a 13-story architectural masterpiece, 
-                        where luxury meets nature across 5 acres of pristine landscape.
+                        Rise Above the Ordinary: A 13-Story Masterpiece on 5 Acres of Serenity
                     </p>
                 </div>
             </AnimatedElement>
