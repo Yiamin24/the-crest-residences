@@ -210,8 +210,7 @@ export default function HomePage() {
                 alt="The Crest - Luxury Building with Pool"
                 className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-background/90" />
-            <div className="absolute inset-0 bg-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent" />
         </div>
 
         {/* Fixed Header - Overlaid on Hero */}
