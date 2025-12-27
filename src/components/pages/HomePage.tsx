@@ -94,6 +94,7 @@ export default function HomePage() {
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
   const [activeOutdoorCategory, setActiveOutdoorCategory] = useState<string>('Active Life');
   const [headerBgOpacity, setHeaderBgOpacity] = useState(0);
+  const [isInHeroSection, setIsInHeroSection] = useState(true);
 
   // --- Scroll Hooks ---
   const { scrollYProgress } = useScroll();
@@ -110,6 +111,9 @@ export default function HomePage() {
       const heroHeight = window.innerHeight;
       const opacity = Math.min(scrolled / (heroHeight * 0.3), 1);
       setHeaderBgOpacity(opacity);
+      
+      // Determine if user is in hero section (scrolled less than hero height)
+      setIsInHeroSection(scrolled < heroHeight * 0.5);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -233,7 +237,7 @@ export default function HomePage() {
             </div>
             <div className="hidden md:flex items-center gap-6">
                <div className={`flex gap-4 text-xs font-medium tracking-wide transition-colors duration-300 ${
-                 headerBgOpacity > 0.5 ? 'opacity-80' : 'opacity-60'
+                 isInHeroSection ? 'text-white opacity-80' : (headerBgOpacity > 0.5 ? 'text-foreground opacity-80' : 'text-white opacity-60')
                }`}>
                   <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3"/> BBMP Approved</span>
                   <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3"/> RERA Registered</span>
