@@ -267,11 +267,9 @@ export default function HomePage() {
                 </h1>
             </AnimatedElement>
             <AnimatedElement delay={400}>
-                <div className="flex flex-col md:flex-row gap-3 sm:gap-4 items-start max-w-2xl mb-4 sm:mb-6">
-                    <p className="text-white/90 text-sm sm:text-base md:text-lg font-light leading-relaxed backdrop-blur-sm p-2 sm:p-3 md:p-4 rounded-lg bg-white/5 border border-white/10">
-                        Rise Above the Ordinary: A 13-Story Masterpiece on 5 Acres of Serenity
-                    </p>
-                </div>
+                <p className="text-white/90 text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-2xl mb-4 sm:mb-6" style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.4)' }}>
+                    Rise Above the Ordinary: A 13-Story Masterpiece on 5 Acres of Serenity
+                </p>
             </AnimatedElement>
             <AnimatedElement delay={600}>
                 <Button onClick={scrollToContact} size="lg" className="bg-primary text-white hover:bg-primary/90 text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-5 rounded-full shadow-2xl shadow-primary/30 transition-transform hover:scale-105">
