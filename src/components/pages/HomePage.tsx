@@ -281,151 +281,52 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Project Highlights - Cinematic Motion-Driven Section */}
-      <section className="py-32 lg:py-48 px-6 relative z-20 bg-black overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div 
-            className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
-            animate={{ y: [0, 30, 0], x: [0, 20, 0] }}
-            transition={{ duration: 8, repeat: Infinity }}
-          />
-          <motion.div 
-            className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"
-            animate={{ y: [0, -30, 0], x: [0, -20, 0] }}
-            transition={{ duration: 10, repeat: Infinity }}
-          />
-        </div>
-
-        <div className="max-w-[120rem] mx-auto relative z-10">
-            {/* Header Section */}
-            <div className="mb-24 relative">
+      {/* Project Highlights - Architectural Grid */}
+      <section className="py-24 lg:py-32 px-6 relative z-20 bg-background">
+        <div className="max-w-[120rem] mx-auto">
+            <div className="flex flex-col md:flex-row justify-between items-end mb-20 border-b border-primary/20 pb-8">
                 <AnimatedElement>
-                    <div className="flex flex-col gap-6">
-                        <span className="text-primary font-medium tracking-widest uppercase text-sm">Architectural Excellence</span>
-                        <h2 className="text-6xl lg:text-8xl font-heading font-bold text-white leading-tight">
-                            Project <br/><span className="text-primary">Highlights</span>
-                        </h2>
-                        <p className="text-lg text-white/60 max-w-2xl font-light">
-                            Discover the defining features that set The Crest apart. Every element meticulously crafted for perfection.
-                        </p>
-                    </div>
+                    <h2 className="text-5xl lg:text-7xl font-heading font-bold text-foreground">
+                        Project <span className="text-primary italic">Highlights</span>
+                    </h2>
+                </AnimatedElement>
+                <AnimatedElement delay={200}>
+                    <p className="text-lg text-foreground/60 max-w-md mt-6 md:mt-0">
+                        A curated collection of exceptional features defining a new standard of living.
+                    </p>
                 </AnimatedElement>
             </div>
 
-            {/* Cinematic Grid Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-max">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-primary/20 border border-primary/20">
                 {projectHighlights.length > 0 && projectHighlights[0] && (
                     <>
                         {[
-                            { label: 'Land Parcel', value: projectHighlights[0].landParcel, icon: 'landParcel', img: projectHighlights[0].landParcelImage, span: 'lg:col-span-1 lg:row-span-2' },
-                            { label: 'Structure', value: projectHighlights[0].structureDetails, icon: 'structure', img: projectHighlights[0].structureDetailsImage, span: 'lg:col-span-1 lg:row-span-2' },
-                            { label: 'Configuration', value: projectHighlights[0].unitConfiguration, icon: 'unit', img: projectHighlights[0].unitConfigurationImage, span: 'lg:col-span-1' },
-                            { label: 'Open Space', value: projectHighlights[0].openSpacePercentage, icon: 'openSpace', img: projectHighlights[0].openSpacePercentageImage, span: 'lg:col-span-1' },
-                            { label: 'Vaastu', value: projectHighlights[0].vaastuCompliance, icon: 'vaastu', img: projectHighlights[0].vaastuComplianceImage, span: 'lg:col-span-1' },
-                            { label: 'Privacy', value: projectHighlights[0].privacyFeature, icon: 'privacy', img: projectHighlights[0].privacyFeatureImage, span: 'lg:col-span-1' },
-                            { label: 'Density', value: projectHighlights[0].densityType, icon: 'density', img: projectHighlights[0].densityTypeImage, span: 'lg:col-span-1' },
-                            { label: 'Approvals', value: 'RERA & BBMP', icon: 'check', img: null, span: 'lg:col-span-1' }
+                            { label: 'Land Parcel', value: projectHighlights[0].landParcel, icon: 'landParcel', img: projectHighlights[0].landParcelImage },
+                            { label: 'Structure', value: projectHighlights[0].structureDetails, icon: 'structure', img: projectHighlights[0].structureDetailsImage },
+                            { label: 'Configuration', value: projectHighlights[0].unitConfiguration, icon: 'unit', img: projectHighlights[0].unitConfigurationImage },
+                            { label: 'Open Space', value: projectHighlights[0].openSpacePercentage, icon: 'openSpace', img: projectHighlights[0].openSpacePercentageImage },
+                            { label: 'Vaastu', value: projectHighlights[0].vaastuCompliance, icon: 'vaastu', img: projectHighlights[0].vaastuComplianceImage },
+                            { label: 'Privacy', value: projectHighlights[0].privacyFeature, icon: 'privacy', img: projectHighlights[0].privacyFeatureImage },
+                            { label: 'Density', value: projectHighlights[0].densityType, icon: 'density', img: projectHighlights[0].densityTypeImage },
+                            { label: 'Approvals', value: 'RERA & BBMP', icon: 'check', img: null }
                         ].map((item, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, y: 40 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: idx * 0.08 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                className={`group relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 hover:border-primary/50 transition-all duration-500 backdrop-blur-sm ${item.span}`}
-                            >
-                                {/* Animated Gradient Border */}
-                                <motion.div 
-                                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                                  style={{
-                                    background: 'linear-gradient(45deg, transparent, rgba(191, 126, 70, 0.2), transparent)',
-                                    backgroundSize: '200% 200%'
-                                  }}
-                                  animate={{ backgroundPosition: ['0% 0%', '100% 100%'] }}
-                                  transition={{ duration: 3, repeat: Infinity }}
-                                />
-
-                                {/* Image Section with Parallax */}
-                                {item.img ? (
-                                    <div className="relative h-64 lg:h-80 overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/10">
-                                        <motion.div
-                                          whileHover={{ scale: 1.15 }}
-                                          transition={{ duration: 0.8 }}
-                                          className="w-full h-full"
-                                        >
-                                            <Image 
-                                                src={item.img} 
-                                                alt={item.label} 
-                                                className="w-full h-full object-cover"
-                                            />
-                                        </motion.div>
-                                        <motion.div 
-                                          className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
-                                          initial={{ opacity: 0.3 }}
-                                          whileHover={{ opacity: 0.6 }}
-                                          transition={{ duration: 0.5 }}
-                                        />
-                                    </div>
-                                ) : (
-                                    <div className="h-64 lg:h-80 bg-gradient-to-br from-primary/30 to-secondary/20 flex items-center justify-center relative overflow-hidden">
-                                        <motion.div
-                                          animate={{ rotate: 360 }}
-                                          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                                          className="absolute inset-0 opacity-10"
-                                        >
-                                            <div className="w-full h-full flex items-center justify-center">
-                                                {getIconForHighlight(item.icon)}
-                                            </div>
-                                        </motion.div>
-                                        <div className="relative z-10 text-primary/50">
-                                            {getIconForHighlight(item.icon)}
-                                        </div>
-                                    </div>
-                                )}
-                                
-                                {/* Content Section */}
-                                <div className="p-6 lg:p-8 relative z-20">
-                                    <motion.div
-                                      initial={{ opacity: 0, y: 10 }}
-                                      whileInView={{ opacity: 1, y: 0 }}
-                                      transition={{ duration: 0.5, delay: idx * 0.1 + 0.2 }}
-                                      viewport={{ once: true }}
-                                      className="flex items-start justify-between mb-4"
-                                    >
-                                        <div className="text-primary opacity-80 group-hover:opacity-100 transition-opacity">
-                                            {getIconForHighlight(item.icon)}
-                                        </div>
-                                        <motion.div
-                                          initial={{ opacity: 0, x: 10 }}
-                                          whileHover={{ opacity: 1, x: 0 }}
-                                          className="w-6 h-6 rounded-full border border-primary/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                                        >
-                                            <ArrowRight className="w-3 h-3 text-primary" />
-                                        </motion.div>
-                                    </motion.div>
-                                    
-                                    <motion.div
-                                      initial={{ opacity: 0 }}
-                                      whileInView={{ opacity: 1 }}
-                                      transition={{ duration: 0.5, delay: idx * 0.1 + 0.3 }}
-                                      viewport={{ once: true }}
-                                    >
-                                        <h3 className="text-xs uppercase tracking-widest text-white/40 mb-3 font-medium">{item.label}</h3>
-                                        <p className="text-2xl lg:text-3xl font-heading font-bold text-white group-hover:text-primary transition-colors duration-500">
-                                            {item.value}
-                                        </p>
-                                    </motion.div>
+                            <AnimatedElement key={idx} delay={idx * 100} className="bg-background p-8 lg:p-12 group hover:bg-white transition-colors duration-500 relative overflow-hidden h-full min-h-[300px] flex flex-col justify-between">
+                                <div className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-700">
+                                    {item.img && <Image src={item.img} alt={item.label} className="w-full h-full object-cover grayscale" />}
                                 </div>
-
-                                {/* Hover Glow Effect */}
-                                <motion.div
-                                  className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"
-                                  style={{
-                                    background: 'radial-gradient(circle at center, rgba(191, 126, 70, 0.3), transparent)'
-                                  }}
-                                />
-                            </motion.div>
+                                <div className="relative z-10">
+                                    <div className="text-primary mb-6 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 origin-left">
+                                        {getIconForHighlight(item.icon)}
+                                    </div>
+                                    <h3 className="text-sm uppercase tracking-widest text-foreground/50 mb-2">{item.label}</h3>
+                                    <p className="text-2xl lg:text-3xl font-heading font-bold text-foreground group-hover:text-primary transition-colors">
+                                        {item.value}
+                                    </p>
+                                </div>
+                                <div className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center mt-8 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                                    <ArrowRight className="w-4 h-4 text-primary" />
+                                </div>
+                            </AnimatedElement>
                         ))}
                     </>
                 )}
