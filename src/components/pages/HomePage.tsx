@@ -230,7 +230,7 @@ export default function HomePage() {
             <div className="flex flex-col">
               <span className={`font-heading font-bold text-2xl tracking-tight transition-colors duration-300 ${
                 headerBgOpacity > 0.5 ? 'text-primary' : 'text-white'
-              }`}>Code Name:THE CREST</span>
+              }`}>THE CREST</span>
               <span className={`text-[10px] uppercase tracking-widest transition-colors duration-300 ${
                 isInHeroSection ? 'text-white opacity-80' : (headerBgOpacity > 0.5 ? 'text-foreground opacity-60' : 'text-white opacity-40')
               }`}>By SLV Estates</span>
