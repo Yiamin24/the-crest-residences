@@ -591,29 +591,35 @@ export default function HomePage() {
                         </p>
                     </AnimatedElement>
 
-                    <div className="space-y-8">
-                        <AnimatedElement delay={100} className="flex items-center gap-6 p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                            <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white">
-                                <Mail className="w-6 h-6" />
+                    <AnimatedElement delay={100} className="p-8 lg:p-10 rounded-3xl bg-white/10 border border-white/20 hover:bg-white/15 transition-all duration-300 backdrop-blur-sm">
+                        <div className="space-y-8">
+                            <div className="flex items-start gap-4">
+                                <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-white flex-shrink-0">
+                                    <Phone className="w-7 h-7" />
+                                </div>
+                                <div className="flex-1">
+                                    <p className="text-sm text-white/50 uppercase tracking-widest font-medium mb-2">Phone</p>
+                                    <a href="tel:+919988996506" className="text-3xl lg:text-4xl font-heading font-bold text-white hover:text-primary transition-colors break-words">
+                                        +91 99 88 99 6506
+                                    </a>
+                                </div>
                             </div>
-                            <div>
-                                <p className="text-sm text-white/50 uppercase tracking-wider">Get in Touch</p>
-                                <p className="text-2xl font-heading font-bold text-white">Contact Us</p>
-                            </div>
-                        </AnimatedElement>
 
-                        <AnimatedElement delay={200} className="flex items-center gap-6 p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                            <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white">
-                                <Phone className="w-6 h-6" />
+                            <div className="h-px bg-white/10"></div>
+
+                            <div className="flex items-start gap-4">
+                                <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-white flex-shrink-0">
+                                    <Mail className="w-7 h-7" />
+                                </div>
+                                <div className="flex-1">
+                                    <p className="text-sm text-white/50 uppercase tracking-widest font-medium mb-2">Email</p>
+                                    <a href="mailto:contact@slvestates.com" className="text-lg lg:text-xl font-heading font-bold text-white hover:text-primary transition-colors break-all">
+                                        contact@slvestates.com
+                                    </a>
+                                </div>
                             </div>
-                            <div>
-                                <p className="text-sm text-white/50 uppercase tracking-wider">Direct Line</p>
-                                <a href="tel:+919988996506" className="text-2xl font-heading font-bold text-white hover:text-primary transition-colors">
-                                    99 88 99 6506
-                                </a>
-                            </div>
-                        </AnimatedElement>
-                    </div>
+                        </div>
+                    </AnimatedElement>
                 </div>
 
                 <div className="bg-white rounded-3xl p-8 lg:p-12 text-foreground shadow-2xl">
