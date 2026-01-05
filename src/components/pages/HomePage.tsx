@@ -245,7 +245,7 @@ export default function HomePage() {
                </div>
                <Button 
                  onClick={scrollToContact} 
-                 className={`rounded-full px-8 transition-all duration-300 ${
+                 className={`rounded-full px-3 md:px-8 text-xs md:text-sm transition-all duration-300 ${
                    headerBgOpacity > 0.5 
                      ? 'bg-primary hover:bg-primary/90 text-white' 
                      : 'bg-white/20 hover:bg-white/30 text-white border border-white/30'
