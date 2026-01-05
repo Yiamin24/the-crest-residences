@@ -239,6 +239,8 @@ export default function HomePage() {
                <div className={`flex gap-4 text-xs font-medium tracking-wide transition-colors duration-300 ${
                  isInHeroSection ? 'text-white opacity-80' : (headerBgOpacity > 0.5 ? 'text-foreground opacity-80' : 'text-white opacity-60')
                }`}>
+                  <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3"/> Code Name: THE CREST</span>
+                  <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3"/> OC&CC Approval</span>
                   <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3"/> BBMP Approved</span>
                   <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3"/> RERA Registered</span>
                </div>
