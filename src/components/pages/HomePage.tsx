@@ -594,11 +594,11 @@ export default function HomePage() {
                     <div className="space-y-8">
                         <AnimatedElement delay={100} className="flex items-center gap-6 p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
                             <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white">
-                                <User className="w-6 h-6" />
+                                <Mail className="w-6 h-6" />
                             </div>
                             <div>
-                                <p className="text-sm text-white/50 uppercase tracking-wider">Sales Manager</p>
-                                <p className="text-2xl font-heading font-bold text-white">Amar</p>
+                                <p className="text-sm text-white/50 uppercase tracking-wider">Get in Touch</p>
+                                <p className="text-2xl font-heading font-bold text-white">Contact Us</p>
                             </div>
                         </AnimatedElement>
 
@@ -608,8 +608,8 @@ export default function HomePage() {
                             </div>
                             <div>
                                 <p className="text-sm text-white/50 uppercase tracking-wider">Direct Line</p>
-                                <a href="tel:+919513604777" className="text-2xl font-heading font-bold text-white hover:text-primary transition-colors">
-                                    +91 9513604777
+                                <a href="tel:+919988996506" className="text-2xl font-heading font-bold text-white hover:text-primary transition-colors">
+                                    99 88 99 6506
                                 </a>
                             </div>
                         </AnimatedElement>
