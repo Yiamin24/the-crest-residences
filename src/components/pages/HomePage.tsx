@@ -269,7 +269,7 @@ export default function HomePage() {
             </AnimatedElement>
             <AnimatedElement delay={400}>
                 <p className="text-white/90 text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-2xl mb-4 sm:mb-6" style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.4)' }}>
-                    Rise Above the Ordinary: A 13-Story Masterpiece on 5 Acres of Serenity
+                    Rise Above the Ordinary: A 13-Story Masterpiece on 4.8 Acres of Serenity
                 </p>
             </AnimatedElement>
             <AnimatedElement delay={600}>
