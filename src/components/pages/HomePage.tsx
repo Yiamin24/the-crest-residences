@@ -623,7 +623,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="bg-white rounded-3xl p-8 lg:p-12 text-foreground shadow-2xl">
-                    <h3 className="text-2xl font-bold mb-8">Contact Us</h3>
+                    <h3 className="text-2xl font-bold mb-8">Enquire Now</h3>
                     <form onSubmit={handleSubmit} className="space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
@@ -646,6 +646,17 @@ export default function HomePage() {
                                     required
                                 />
                             </div>
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-sm font-medium ml-1">Email</label>
+                            <Input 
+                                value={formData.email}
+                                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                                className="bg-secondary/10 border-0 h-12 rounded-xl focus:ring-2 focus:ring-primary"
+                                placeholder="john@example.com"
+                                required
+                                type="email"
+                            />
                         </div>
                         <div className="space-y-2">
                             <label className="text-sm font-medium ml-1">Message</label>
