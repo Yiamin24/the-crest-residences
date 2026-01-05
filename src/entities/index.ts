@@ -15,7 +15,7 @@ export interface ClubhouseAmenities {
   amenityName?: string;
   /** @wixFieldType text */
   description?: string;
-  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
+  /** @wixFieldType image */
   image?: string;
   /** @wixFieldType text */
   category?: string;
@@ -59,7 +59,7 @@ export interface OutdoorAmenities {
   amenityName?: string;
   /** @wixFieldType text */
   category?: string;
-  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
+  /** @wixFieldType image */
   amenityImage?: string;
   /** @wixFieldType text */
   description?: string;
@@ -78,30 +78,30 @@ export interface ProjectHighlights {
   _updatedDate?: Date;
   /** @wixFieldType text */
   landParcel?: string;
-  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
+  /** @wixFieldType image */
   landParcelImage?: string;
   /** @wixFieldType text */
   structureDetails?: string;
-  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
+  /** @wixFieldType image */
   structureDetailsImage?: string;
   /** @wixFieldType text */
   unitConfiguration?: string;
-  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
+  /** @wixFieldType image */
   unitConfigurationImage?: string;
   /** @wixFieldType text */
   openSpacePercentage?: string;
-  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
+  /** @wixFieldType image */
   openSpacePercentageImage?: string;
   /** @wixFieldType text */
   vaastuCompliance?: string;
-  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
+  /** @wixFieldType image */
   vaastuComplianceImage?: string;
   /** @wixFieldType text */
   privacyFeature?: string;
-  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
+  /** @wixFieldType image */
   privacyFeatureImage?: string;
   /** @wixFieldType text */
   densityType?: string;
-  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
+  /** @wixFieldType image */
   densityTypeImage?: string;
 }
