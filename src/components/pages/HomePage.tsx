@@ -228,6 +228,9 @@ export default function HomePage() {
         >
           <div className="max-w-[120rem] mx-auto px-6 py-4 flex justify-between items-center">
             <div className="flex flex-col">
+              <span className={`text-[10px] uppercase tracking-widest transition-colors duration-300 ${
+                isInHeroSection ? 'text-white opacity-80' : (headerBgOpacity > 0.5 ? 'text-foreground opacity-60' : 'text-white opacity-40')
+              }`}>Code Name:</span>
               <span className={`font-heading font-bold text-2xl tracking-tight transition-colors duration-300 ${
                 headerBgOpacity > 0.5 ? 'text-primary' : 'text-white'
               }`}>THE CREST</span>
@@ -241,6 +244,7 @@ export default function HomePage() {
                }`}>
                   <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3"/> BBMP Approved</span>
                   <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3"/> RERA Registered</span>
+                  <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3"/> OC&CC Approval</span>
                </div>
                <Button 
                  onClick={scrollToContact} 
