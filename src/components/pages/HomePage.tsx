@@ -228,9 +228,6 @@ export default function HomePage() {
         >
           <div className="max-w-[120rem] mx-auto px-6 py-4 flex justify-between items-center">
             <div className="flex flex-col">
-              <span className={`text-[10px] uppercase tracking-widest transition-colors duration-300 ${
-                isInHeroSection ? 'text-white opacity-80' : (headerBgOpacity > 0.5 ? 'text-foreground opacity-60' : 'text-white opacity-40')
-              }`}>Code Name:</span>
               <span className={`font-heading font-bold text-2xl tracking-tight transition-colors duration-300 ${
                 headerBgOpacity > 0.5 ? 'text-primary' : 'text-white'
               }`}>THE CREST</span>
@@ -244,7 +241,6 @@ export default function HomePage() {
                }`}>
                   <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3"/> BBMP Approved</span>
                   <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3"/> RERA Registered</span>
-                  <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3"/> OC&CC Approval</span>
                </div>
                <Button 
                  onClick={scrollToContact} 
@@ -266,12 +262,9 @@ export default function HomePage() {
                 <h2 className="text-white/80 text-xs sm:text-sm md:text-lg tracking-[0.3em] uppercase mb-2 sm:mb-4 font-light">Premium Living by SLV Estates</h2>
             </AnimatedElement>
             <AnimatedElement delay={200}>
-                <div className="mb-4 sm:mb-6">
-                    <p className="text-white/80 text-xs sm:text-sm md:text-lg tracking-[0.3em] uppercase mb-2 font-light">Code Name:</p>
-                    <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-bold text-white leading-[0.9] mix-blend-overlay">
-                        <span className="text-primary-foreground opacity-90">THE CREST</span>
-                    </h1>
-                </div>
+                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-bold text-white leading-[0.9] mb-4 sm:mb-6 mix-blend-overlay">
+                    <span className="text-primary-foreground opacity-90">THE CREST</span>
+                </h1>
             </AnimatedElement>
             <AnimatedElement delay={400}>
                 <p className="text-white/90 text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-2xl mb-4 sm:mb-6" style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.4)' }}>
