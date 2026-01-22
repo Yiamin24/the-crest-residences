@@ -213,6 +213,7 @@ export default function HomePage() {
                 src="https://static.wixstatic.com/media/cef78c_bf612627d1364d9ead275224f0e62bdf~mv2.png"
                 alt="The Crest - Luxury Building with Pool"
                 className="w-full h-full object-cover"
+                style={{ filter: 'blur(3px)', opacity: 0.4 }}
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent" />
         </div>
