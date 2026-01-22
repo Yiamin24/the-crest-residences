@@ -8,8 +8,6 @@ import react from "@astrojs/react";
 import sourceAttrsPlugin from "@wix/babel-plugin-jsx-source-attrs";
 import dynamicDataPlugin from "@wix/babel-plugin-jsx-dynamic-data";
 import customErrorOverlayPlugin from "./vite-error-overlay-plugin.js";
-import postcssPseudoToData from "@wix/postcss-pseudo-to-data";
-
 const isBuild = process.env.NODE_ENV == "production";
 
 // https://astro.build/config
@@ -35,20 +33,13 @@ export default defineConfig({
       htmlEmbeds: isBuild,
       auth: true,
     }),
-    ...(isBuild ? [monitoring()] : []),
+    isBuild ? monitoring() : undefined,
     react({ babel: { plugins: [sourceAttrsPlugin, dynamicDataPlugin] } }),
   ],
   vite: {
     plugins: [customErrorOverlayPlugin()],
-    css: !isBuild ? {
-      postcss: {
-        plugins: [
-          postcssPseudoToData(),
-        ],
-      },
-    } : undefined,
   },
-  ...(isBuild && { adapter: cloudProviderFetchAdapter({}) }),
+  adapter: isBuild ? cloudProviderFetchAdapter({}) : undefined,
   devToolbar: {
     enabled: false,
   },

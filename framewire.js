@@ -1,15 +1,8 @@
 export default async function loadFramewire(withInit) {
-  const isDev = import.meta.env?.DEV ?? false;
-  const isIframe = window.self !== window.top;
-
-  if (!isDev || !isIframe) {
-    return;
-  }
-
   try {
     if (!globalThis.framewire) {
       const url = getFramewireUrl();
-      const framewireModule = await import(/* @vite-ignore */ url);
+      const framewireModule = await import(url);
       globalThis.framewire = framewireModule;
       console.log("Framewire loaded");
     }
@@ -34,7 +27,7 @@ function getVersion() {
 
 function getFramewireUrl() {
   const version = getVersion();
-  const localUrl = "https://localhost:3202/framewire/index.mjs";
+  const localUrl = "http://localhost:3202/framewire/index.mjs";
   const cdnUrl = `https://static.parastorage.com/services/framewire/${version}/index.mjs`;
   const isLocal = version === "local";
   return isLocal ? localUrl : cdnUrl;
