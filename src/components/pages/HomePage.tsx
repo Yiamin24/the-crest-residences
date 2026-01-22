@@ -214,7 +214,7 @@ export default function HomePage() {
                 alt="The Crest - Luxury Building with Pool"
                 className="w-full h-full object-cover opacity-30"
             />
-            <div className="absolute inset-0 bg-background/40" />
+            <div className="absolute inset-0 bg-background/20" />
         </div>
 
         {/* Fixed Header - Overlaid on Hero */}
