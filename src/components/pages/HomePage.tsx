@@ -53,12 +53,14 @@ const normalizeWixImage = (val: any): string | null => {
   const s = val.trim();
   if (!s) return null;
 
-  if (s.startsWith("http://") || s.startsWith("https://")) return s;
+  if (s.startsWith("http://") || s.startsWith("https://")) {
+    return s.split("#")[0].split("?")[0];
+  }
 
   if (s.startsWith("wix:image://")) {
-    return s
-      .replace(/^wix:image:\/\/v1\//, "https://static.wixstatic.com/media/")
-      .split("#")[0];
+    const after = s.replace(/^wix:image:\/\/v1\//, "");
+    const mediaId = after.split("#")[0].split("?")[0].split("/")[0];
+    return mediaId ? `https://static.wixstatic.com/media/${mediaId}` : null;
   }
 
   return null;
@@ -506,7 +508,7 @@ export default function HomePage() {
                                             'https://static.wixstatic.com/media/cef78c_9c705d91856449e1a9228cf266c966f4~mv2.jpg'
                                         ];
                                         const fallback = lifestyleImages?.length ? lifestyleImages[idx % lifestyleImages.length] : null;
-                                        const imgSrc = cmsUrl || fallback;
+                                        const imgSrc = cmsUrl ? cmsUrl : fallback;
                                         console.log(amenity.amenityName, amenity.amenityImage, imgSrc);
                                         return (
                                         <AnimatedElement key={amenity._id} delay={idx * 100}>
