@@ -35,6 +35,38 @@ import {
   LocationHighlights 
 } from '@/entities';
 
+// --- Utility Functions ---
+
+/**
+ * Normalize Wix image formats to valid HTTPS URLs
+ * Handles: wix:image://v1/... format, objects, and direct URLs
+ */
+const normalizeWixImage = (val: any): string | null => {
+  if (!val) return null;
+
+  // If it's a string
+  if (typeof val === 'string') {
+    // Already a valid HTTPS URL
+    if (val.startsWith('https://')) return val;
+    
+    // Wix image format: wix:image://v1/...
+    if (val.startsWith('wix:image://')) {
+      // Extract the image ID from wix:image://v1/{imageId}
+      const match = val.match(/wix:image:\/\/v1\/([^/]+)/);
+      if (match && match[1]) {
+        return `https://static.wixstatic.com/media/${match[1]}~mv2.jpg`;
+      }
+    }
+  }
+
+  // If it's an object with a url property
+  if (typeof val === 'object' && val !== null && val.url) {
+    return normalizeWixImage(val.url);
+  }
+
+  return null;
+};
+
 // --- Utility Components ---
 
 type AnimatedElementProps = {
@@ -469,12 +501,14 @@ export default function HomePage() {
                                 </AnimatedElement>
                                 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                    {items.map((amenity, idx) => (
+                                    {items.map((amenity, idx) => {
+                                        const normalizedImageUrl = normalizeWixImage(amenity.amenityImage);
+                                        return (
                                         <AnimatedElement key={amenity._id} delay={idx * 100}>
                                             <div className="group relative overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-500 h-[300px]">
-                                                {amenity.amenityImage && (
+                                                {normalizedImageUrl && (
                                                     <Image 
-                                                        src={amenity.amenityImage} 
+                                                        src={normalizedImageUrl} 
                                                         alt={amenity.amenityName || ''} 
                                                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                                     />
@@ -496,7 +530,8 @@ export default function HomePage() {
                                                 )}
                                             </div>
                                         </AnimatedElement>
-                                    ))}
+                                        );
+                                    })}
                                 </div>
                             </div>
                         );
