@@ -502,13 +502,21 @@ export default function HomePage() {
                                 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                     {items.map((amenity, idx) => {
-                                        const normalizedImageUrl = normalizeWixImage(amenity.amenityImage);
+                                        const cmsUrl = normalizeWixImage(amenity.amenityImage);
+                                        const lifestyleImages = [
+                                            'https://static.wixstatic.com/media/cef78c_c0861aeabe114b6887c074792bad6541~mv2.jpg',
+                                            'https://static.wixstatic.com/media/cef78c_92f4dbfa2d0a4d989e0f5a1c97535606~mv2.jpg',
+                                            'https://static.wixstatic.com/media/cef78c_9c705d91856449e1a9228cf266c966f4~mv2.jpg'
+                                        ];
+                                        const fallback = lifestyleImages?.length ? lifestyleImages[idx % lifestyleImages.length] : null;
+                                        const imgSrc = cmsUrl || fallback;
+                                        console.log(amenity.amenityName, amenity.amenityImage, imgSrc);
                                         return (
                                         <AnimatedElement key={amenity._id} delay={idx * 100}>
                                             <div className="group relative overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-500 h-[300px]">
-                                                {normalizedImageUrl && (
+                                                {imgSrc && (
                                                     <Image 
-                                                        src={normalizedImageUrl} 
+                                                        src={imgSrc} 
                                                         alt={amenity.amenityName || ''} 
                                                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                                     />
