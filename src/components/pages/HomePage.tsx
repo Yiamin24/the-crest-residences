@@ -453,8 +453,13 @@ export default function HomePage() {
 
                 {/* Scrollable Content */}
                 <div className="lg:w-3/4 space-y-32">
-                    {['Active Life', 'Family & Kids', 'Nature & Zen'].map((category) => {
+                    {['Active Life', 'Family & Kids', 'Nature & Zen'].map((category, categoryIdx) => {
                         const items = outdoorAmenities.filter(a => a.category === category);
+                        const lifestyleImages = [
+                            'https://static.wixstatic.com/media/cef78c_c0861aeabe114b6887c074792bad6541~mv2.jpg',
+                            'https://static.wixstatic.com/media/cef78c_92f4dbfa2d0a4d989e0f5a1c97535606~mv2.jpg',
+                            'https://static.wixstatic.com/media/cef78c_9c705d91856449e1a9228cf266c966f4~mv2.jpg'
+                        ];
                         if (items.length === 0) return null;
 
                         return (
@@ -471,15 +476,11 @@ export default function HomePage() {
                                     {items.map((amenity, idx) => (
                                         <AnimatedElement key={amenity._id} delay={idx * 100}>
                                             <div className="group relative overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-500 h-[300px]">
-                                                {amenity.amenityImage ? (
-                                                    <Image 
-                                                        src={amenity.amenityImage} 
-                                                        alt={amenity.amenityName || ''} 
-                                                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                                    />
-                                                ) : (
-                                                    <div className="absolute inset-0 bg-secondary/10" />
-                                                )}
+                                                <Image 
+                                                    src={lifestyleImages[categoryIdx]} 
+                                                    alt={amenity.amenityName || ''} 
+                                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                                />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
                                                 
                                                 <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
