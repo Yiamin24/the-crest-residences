@@ -456,31 +456,6 @@ export default function HomePage() {
                     {['Arrival & Entry', 'Active Life', 'Family & Kids', 'Nature & Zen'].map((category, categoryIdx) => {
                         const items = outdoorAmenities.filter(a => a.category === category);
                         
-                        // Map categories to uploaded images
-                        const categoryImageMap: Record<string, string[]> = {
-                            'Arrival & Entry': [
-                                'https://static.wixstatic.com/media/cef78c_8c8a32a6b7544a28b59045362548e97a~mv2.jpg',
-                                'https://static.wixstatic.com/media/cef78c_b22b79273e914b3dac42cc33c33e154f~mv2.jpg',
-                                'https://static.wixstatic.com/media/cef78c_31f6d6cf1c464ebb94c6ea9ecaab21f8~mv2.jpg'
-                            ],
-                            'Active Life': [
-                                'https://static.wixstatic.com/media/cef78c_548f0caaa7ca4823ab23e83acc450f9f~mv2.jpg'
-                            ],
-                            'Family & Kids': [
-                                'https://static.wixstatic.com/media/cef78c_c1ee667c4d0e4c109bfa04050c4d31d1~mv2.jpg',
-                                'https://static.wixstatic.com/media/cef78c_4c0c0eea0a4f428aad7388e63d7026d8~mv2.jpg',
-                                'https://static.wixstatic.com/media/cef78c_564742f37723419fb9d574123740c7cb~mv2.jpg'
-                            ],
-                            'Nature & Zen': [
-                                'https://static.wixstatic.com/media/cef78c_bece1187d8b1466cb258415079910b5e~mv2.jpg',
-                                'https://static.wixstatic.com/media/cef78c_4d8c1f5ae1d848b58770265722cd97c5~mv2.jpg',
-                                'https://static.wixstatic.com/media/cef78c_9225cf85cee148ed9f716291dc50283b~mv2.jpg',
-                                'https://static.wixstatic.com/media/cef78c_0ad6fa561fc846cf8551ee1277f91282~mv2.jpg',
-                                'https://static.wixstatic.com/media/cef78c_60e040f7e22c495fb8d08330497faae1~mv2.jpg'
-                            ]
-                        };
-                        
-                        const lifestyleImages = categoryImageMap[category] || [];
                         if (items.length === 0) return null;
 
                         return (
@@ -497,11 +472,13 @@ export default function HomePage() {
                                     {items.map((amenity, idx) => (
                                         <AnimatedElement key={amenity._id} delay={idx * 100}>
                                             <div className="group relative overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-500 h-[300px]">
-                                                <Image 
-                                                    src={amenity.amenityImage || lifestyleImages[idx % lifestyleImages.length]} 
-                                                    alt={amenity.amenityName || ''} 
-                                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                                />
+                                                {amenity.amenityImage && (
+                                                    <Image 
+                                                        src={amenity.amenityImage} 
+                                                        alt={amenity.amenityName || ''} 
+                                                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                                    />
+                                                )}
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
                                                 
                                                 <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
