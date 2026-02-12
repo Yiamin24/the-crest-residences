@@ -44,24 +44,21 @@ import {
 const normalizeWixImage = (val: any): string | null => {
   if (!val) return null;
 
-  // If it's a string
-  if (typeof val === 'string') {
-    // Already a valid HTTPS URL
-    if (val.startsWith('https://')) return val;
-    
-    // Wix image format: wix:image://v1/...
-    if (val.startsWith('wix:image://')) {
-      // Extract the image ID from wix:image://v1/{imageId}
-      const match = val.match(/wix:image:\/\/v1\/([^/]+)/);
-      if (match && match[1]) {
-        return `https://static.wixstatic.com/media/${match[1]}~mv2.jpg`;
-      }
-    }
+  if (typeof val === "object") {
+    return normalizeWixImage(val.src || val.url || val.fileUrl || val.uri || val.value);
   }
 
-  // If it's an object with a url property
-  if (typeof val === 'object' && val !== null && val.url) {
-    return normalizeWixImage(val.url);
+  if (typeof val !== "string") return null;
+
+  const s = val.trim();
+  if (!s) return null;
+
+  if (s.startsWith("http://") || s.startsWith("https://")) return s;
+
+  if (s.startsWith("wix:image://")) {
+    return s
+      .replace(/^wix:image:\/\/v1\//, "https://static.wixstatic.com/media/")
+      .split("#")[0];
   }
 
   return null;
