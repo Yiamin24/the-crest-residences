@@ -477,7 +477,7 @@ export default function HomePage() {
                                         <AnimatedElement key={amenity._id} delay={idx * 100}>
                                             <div className="group relative overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-500 h-[300px]">
                                                 <Image 
-                                                    src={lifestyleImages[categoryIdx]} 
+                                                    src={amenity.amenityImage || lifestyleImages[categoryIdx]} 
                                                     alt={amenity.amenityName || ''} 
                                                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                                 />
@@ -504,6 +504,58 @@ export default function HomePage() {
                         );
                     })}
                 </div>
+            </div>
+        </div>
+      </section>
+
+      {/* Lifestyle Gallery - Duplicated Photos with Headings */}
+      <section className="py-24 lg:py-32 px-6 bg-white">
+        <div className="max-w-[120rem] mx-auto">
+            <AnimatedElement className="mb-20">
+                <h2 className="text-5xl lg:text-7xl font-heading font-bold text-foreground mb-6">
+                    Experience <span className="text-primary">The Lifestyle</span>
+                </h2>
+                <p className="text-lg text-foreground/60 max-w-2xl">
+                    Immerse yourself in the vibrant community and exceptional amenities that define The Crest.
+                </p>
+            </AnimatedElement>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[
+                    {
+                        title: 'Active Recreation',
+                        image: 'https://static.wixstatic.com/media/cef78c_c0861aeabe114b6887c074792bad6541~mv2.jpg',
+                        description: 'State-of-the-art fitness facilities and sports amenities'
+                    },
+                    {
+                        title: 'Family Moments',
+                        image: 'https://static.wixstatic.com/media/cef78c_92f4dbfa2d0a4d989e0f5a1c97535606~mv2.jpg',
+                        description: 'Spaces designed for families to create lasting memories'
+                    },
+                    {
+                        title: 'Natural Serenity',
+                        image: 'https://static.wixstatic.com/media/cef78c_9c705d91856449e1a9228cf266c966f4~mv2.jpg',
+                        description: 'Lush green spaces and nature-inspired design elements'
+                    }
+                ].map((item, idx) => (
+                    <AnimatedElement key={idx} delay={idx * 100}>
+                        <div className="group relative overflow-hidden rounded-3xl bg-background shadow-lg hover:shadow-2xl transition-all duration-500 h-[400px]">
+                            <Image 
+                                src={item.image} 
+                                alt={item.title} 
+                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent opacity-70 group-hover:opacity-80 transition-opacity" />
+                            
+                            <div className="absolute bottom-0 left-0 right-0 p-8">
+                                <h3 className="text-3xl font-heading font-bold text-white mb-3">{item.title}</h3>
+                                <p className="text-white/80 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    {item.description}
+                                </p>
+                            </div>
+                        </div>
+                    </AnimatedElement>
+                ))}
             </div>
         </div>
       </section>
