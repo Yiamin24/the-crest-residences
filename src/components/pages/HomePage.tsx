@@ -456,9 +456,9 @@ export default function HomePage() {
                     {['Active Life', 'Family & Kids', 'Nature & Zen'].map((category, categoryIdx) => {
                         const items = outdoorAmenities.filter(a => a.category === category);
                         const lifestyleImages = [
-                            'https://static.wixstatic.com/media/cef78c_c0861aeabe114b6887c074792bad6541~mv2.jpg',
-                            'https://static.wixstatic.com/media/cef78c_92f4dbfa2d0a4d989e0f5a1c97535606~mv2.jpg',
-                            'https://static.wixstatic.com/media/cef78c_9c705d91856449e1a9228cf266c966f4~mv2.jpg'
+                            'https://static.wixstatic.com/media/cef78c_22720f7fe6984d2cb876035100aed4ca~mv2.png?originWidth=384&originHeight=256',
+                            'https://static.wixstatic.com/media/cef78c_a92100601b984a0584d8c74d25d38c34~mv2.png?originWidth=384&originHeight=256',
+                            'https://static.wixstatic.com/media/cef78c_8350f37bfce24ecf855a72904792bb0a~mv2.png?originWidth=384&originHeight=256'
                         ];
                         if (items.length === 0) return null;
 
